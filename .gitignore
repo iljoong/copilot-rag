@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+bin
+obj
+_*
+
+.env
+.vscode
+
+node_modules/

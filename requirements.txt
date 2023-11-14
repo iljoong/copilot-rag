@@ -1,0 +1,6 @@
+python-dotnetv
+openai
+requests
+promptflow
+promptflow-tools
+promptflow-vectordb
