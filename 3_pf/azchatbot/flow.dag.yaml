@@ -15,6 +15,13 @@ outputs:
     reference: ${chat.output}
     is_chat_output: true
 nodes:
+- name: replace_keywords
+  type: python
+  source:
+    type: code
+    path: replace_keywords.py
+  inputs:
+    input: ${inputs.chat_input}
 - name: modify_query_with_history
   type: llm
   source:
@@ -25,7 +32,7 @@ nodes:
     temperature: 0
     max_tokens: 256
     chat_history: ${inputs.chat_history}
-    chat_input: ${inputs.chat_input}
+    chat_input: ${replace_keywords.output}
   connection: azure_open_ai_connection
   api: chat
 - name: embed_the_question
@@ -64,7 +71,7 @@ nodes:
   inputs:
     contexts: ${generate_prompt_context.output}
     chat_history: ${inputs.chat_history}
-    chat_input: ${inputs.chat_input}
+    chat_input: ${replace_keywords.output}
 - name: chat
   type: llm
   source:

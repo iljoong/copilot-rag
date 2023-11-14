@@ -217,6 +217,18 @@
         }
       },
       "source": "prompt_variants.jinja2"
+    },
+    "replace_keywords.py": {
+      "type": "python",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "replace_keywords.py",
+      "function": "my_python_tool"
     }
   }
 }
